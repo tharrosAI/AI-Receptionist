@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2x More Appointments in 30 Days Using AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1523;
+    --navy-mid: #132035;
+    --gold: #C9943A;
+    --gold-light: #E0B060;
+    --white: #F5F2ED;
+    --gray: #8A95A3;
+    --green: #2DBF7A;
+    --red: #E05252;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 55% at 50% 0%, rgba(201,148,58,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    max-width: 680px;
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-or-pay {
+    margin-top: 16px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 600;
+    color: var(--gold);
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero-ps {
+    margin-top: 12px;
+    font-size: clamp(0.85rem, 1.5vw, 0.98rem);
+    color: var(--gray);
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  /* SHARED */
+  section { padding: 88px 24px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  .section-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  /* TRUSTED SECTION */
+  .trusted { background: var(--navy-mid); }
+
+  .full-width-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .full-width-image:last-child {
+    margin-bottom: 0;
+  }
+
+  /* TEST LIVE */
+  .live { background: var(--navy); }
+  .live-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 44px;
+  }
+
+  /* ── REALISTIC iPHONE ── */
+  .iphone {
+    width: 230px;
+    min-height: 460px;
+    background: #1A1A1C;
+    border-radius: 48px;
+    box-shadow:
+      0 0 0 1.5px #3A3A3C,
+      0 0 0 3px #2A2A2C,
+      0 0 0 4.5px #111113,
+      0 32px 90px rgba(0,0,0,0.7),
+      0 0 60px rgba(201,148,58,0.06);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .iphone::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 90px;
+    width: 3px; height: 32px;
+    background: #3A3A3C;
+    border-radius: 2px 0 0 2px;
+    box-shadow: 0 44px 0 #3A3A3C, 0 80px 0 #3A3A3C;
+  }
+  .iphone::after {
+    content: '';
+    position: absolute;
+    right: -5px; top: 110px;
+    width: 3px; height: 60px;
+    background: #3A3A3C;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .i-screen {
+    flex: 1;
+    background: linear-gradient(180deg, #1C1C1E 0%, #141416 100%);
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+    border-radius: 44px 44px 0 0;
+  }
+
+  .dynamic-island {
+    width: 88px; height: 28px;
+    background: #000;
+    border-radius: 20px;
+    margin: 10px auto 6px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .i-status {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.5rem; color: rgba(255,255,255,0.6);
+    padding: 0 18px;
+    margin-bottom: 6px;
+    flex-shrink: 0;
+  }
+
+  .notif {
+    position: absolute; top: 60px; left: 8px; right: 8px;
+    background: rgba(44,44,46,0.97);
+    border: 1px solid rgba(201,148,58,0.22);
+    border-radius: 14px;
+    padding: 8px 10px;
+    display: flex; align-items: flex-start; gap: 8px;
+    animation: slideDown 0.5s 2s ease both;
+    opacity: 0;
+    z-index: 5;
+  }
+  @keyframes slideDown {
+    from { opacity:0; transform:translateY(-6px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .notif-icon {
+    width: 24px; height: 24px; border-radius: 6px;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .notif-title { font-size: 0.56rem; font-weight: 700; color: var(--white); }
+  .notif-body  { font-size: 0.5rem; color: var(--gray); margin-top: 2px; line-height: 1.4; }
+  .notif-time  { margin-left: auto; font-size: 0.46rem; color: var(--gray); flex-shrink: 0; }
+
+  .call-screen {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: space-between;
+    padding: 16px 0 28px;
+  }
+  .call-top {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 7px;
+    margin-top: 8px;
+  }
+  .call-bottom {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 8px;
+  }
+  .call-avatar {
+    width: 62px; height: 62px; border-radius: 50%;
+    background: linear-gradient(135deg, #2C3E5A, #3A5A8A);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; font-weight: 700; color: var(--white);
+    border: 2.5px solid rgba(201,148,58,0.4);
+    margin-bottom: 4px;
+  }
+  .call-name  { font-size: 0.78rem; font-weight: 600; color: #fff; }
+  .call-sub   { font-size: 0.54rem; color: rgba(255,255,255,0.45); }
+  .call-pulse { display: flex; gap: 5px; margin: 6px 0 2px; }
+  .p-ring {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  .p-ring:nth-child(2) { animation-delay: 0.2s; }
+  .p-ring:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes pulse { 0%,100%{opacity:0.3;transform:scale(0.8)} 50%{opacity:1;transform:scale(1.2)} }
+  .call-ai-label { font-size: 0.58rem; color: var(--gold); font-weight: 600; }
+
+  .call-btns {
+    display: flex; gap: 36px; margin-top: 14px;
+    align-items: center;
+  }
+  .c-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+  .c-btn-circle {
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .c-btn-circle.decline { background: #FF3B30; }
+  .c-btn-circle.accept  { background: #34C759; }
+  .c-btn-label {
+    font-size: 0.5rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.01em;
+    font-weight: 500;
+  }
+
+  .iphone-bottom {
+    background: #141416;
+    padding: 12px 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 0 0 44px 44px;
+  }
+  .home-indicator {
+    width: 90px; height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 3px;
+  }
+
+  .try-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold); color: var(--navy);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: 1rem;
+    letter-spacing: 0.02em;
+    border: none; cursor: pointer;
+    padding: 16px 36px;
+    border-radius: 100px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    text-decoration: none;
+  }
+  .try-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,148,58,0.35);
+  }
+  .try-btn svg { width: 18px; height: 18px; }
+  .try-note {
+    margin-top: 10px; font-size: 0.8rem;
+    color: var(--gray); font-style: italic; text-align: center;
+  }
+
+  /* BOOKING */
+  .booking { background: var(--navy-mid); }
+  .calendly-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: transparent;
+    overflow: hidden;
+  }
+  .calendly-wrap iframe { 
+    width: 100%; 
+    height: 950px; 
+    border: none; 
+    display: block; 
+  }
+
+  @media (max-width: 600px) {
+    .calendly-wrap iframe {
+      height: 1100px; 
+    }
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 0.78rem; color: var(--gray);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.in-view { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>2x More Appointments<br>in 30 Days Using AI</h1>
+  <p class="hero-or-pay">or you don't pay</p>
+  <p class="hero-ps">PS: Not by running more ads &amp; hiring staff</p>
+</section>
+
+<section class="trusted reveal">
+  <div class="container">
+    <h2 class="section-heading">Trusted by 50+ Local Business Owners</h2>
+    
+    <img src="https://github.com/tharrosAI/Images/blob/main/Success.png?raw=true" alt="Mover Success Stories" class="full-width-image">
+
+    <img src="https://github.com/tharrosAI/Images/blob/main/Before-After.png?raw=true" alt="Before and After Results" class="full-width-image">
+
+  </div>
+</section>
+
+<section class="live reveal">
+  <div class="container">
+    <h2 class="section-heading">Test Our AI Live</h2>
+    <div class="live-inner">
+
+      <div class="iphone">
+        <div class="i-screen">
+          <div class="dynamic-island"></div>
+          <div class="i-status">
+            <span style="font-weight:600;">9:41</span>
+            <span style="display:flex;gap:5px;align-items:center;">
+              <svg width="13" height="10" viewBox="0 0 13 10" fill="currentColor">
+                <rect x="0" y="7" width="2.5" height="3" rx="0.5" opacity="1"/>
+                <rect x="3.5" y="5" width="2.5" height="5" rx="0.5" opacity="1"/>
+                <rect x="7" y="2.5" width="2.5" height="7.5" rx="0.5" opacity="1"/>
+                <rect x="10.5" y="0" width="2.5" height="10" rx="0.5" opacity="0.35"/>
+              </svg>
+              <svg width="12" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              <svg width="18" height="10" viewBox="0 0 24 12" fill="currentColor">
+                <rect x="0" y="1" width="20" height="10" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <rect x="1.5" y="2.5" width="14" height="7" rx="1.5" fill="currentColor"/>
+                <path d="M21.5 4.5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="notif">
+            <div class="notif-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B1523" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 11 19.79 19.79 0 0 1 1.29 2.32 2 2 0 0 1 3.11 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 14.92"/></svg>
+            </div>
+            <div>
+              <div class="notif-title">New Appointment</div>
+              <div class="notif-body">James W. — Apr 4. 12:30 PM.</div>
+            </div>
+            <span class="notif-time">now</span>
+          </div>
+
+          <div class="call-screen">
+            <div class="call-top">
+              <div class="call-avatar">JW</div>
+              <div class="call-name">James Wilson</div>
+              <div class="call-sub">Incoming — Charlotte, NC</div>
+              <div class="call-pulse">
+                <div class="p-ring"></div><div class="p-ring"></div><div class="p-ring"></div>
+              </div>
+              <div class="call-ai-label">AI Answering...</div>
+            </div>
+            <div class="call-bottom">
+              <div class="call-btns">
+                <div class="c-btn">
+                  <div class="c-btn-circle decline">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                      <g transform="rotate(135, 12, 12)">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 11 19.79 19.79 0 0 1 1.29 2.32 2 2 0 0 1 3.11.14h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 14.92"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <span class="c-btn-label">Decline</span>
+                </div>
+                <div class="c-btn">
+                  <div class="c-btn-circle accept">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 11 19.79 19.79 0 0 1 1.29 2.32 2 2 0 0 1 3.11.14h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 14.92"/></svg>
+                  </div>
+                  <span class="c-btn-label">Accept</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="iphone-bottom">
+          <div class="home-indicator"></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <a class="try-btn" href="tel:+13363436328">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 11 19.79 19.79 0 0 1 1.29 2.32 2 2 0 0 1 3.11 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 14.92"/></svg>
+          Try Now From Your Phone
+        </a>
+        <p class="try-note">No sign up. Just chat with it like a real lead.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="booking reveal">
+  <div class="container">
+    <h2 class="section-heading">Book a Call to Learn More</h2>
+    <div class="calendly-wrap">
+      <iframe
+        src="https://calendly.com/lucas-tharrosai/ai-receptionist"
+        title="Book a Call"
+        frameborder="0"
+        scrolling="no"
+        allow="fullscreen">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025. All rights reserved.</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
